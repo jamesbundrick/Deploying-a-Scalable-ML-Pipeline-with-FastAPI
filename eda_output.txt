@@ -1,0 +1,86 @@
+=== Shape (rows, columns) ===
+(32561, 15)
+
+=== Column types ===
+age                int64
+workclass         object
+fnlgt              int64
+education         object
+education-num      int64
+marital-status    object
+occupation        object
+relationship      object
+race              object
+sex               object
+capital-gain       int64
+capital-loss       int64
+hours-per-week     int64
+native-country    object
+salary            object
+dtype: object
+
+=== Missing values (NaN) per column ===
+age               0
+workclass         0
+fnlgt             0
+education         0
+education-num     0
+marital-status    0
+occupation        0
+relationship      0
+race              0
+sex               0
+capital-gain      0
+capital-loss      0
+hours-per-week    0
+native-country    0
+salary            0
+dtype: int64
+
+=== '?' placeholders per column ===
+workclass         1836
+education            0
+marital-status       0
+occupation        1843
+relationship         0
+race                 0
+sex                  0
+native-country     583
+salary               0
+dtype: int64
+
+=== Stray spaces in column names or values? ===
+column names: []
+values: []
+
+=== Duplicate rows ===
+24
+
+=== Label balance (salary) ===
+salary
+<=50K    0.759
+>50K     0.241
+Name: proportion, dtype: float64
+
+=== Unique values per categorical column ===
+workclass          9
+education         16
+marital-status     7
+occupation        15
+relationship       6
+race               5
+sex                2
+native-country    42
+salary             2
+dtype: int64
+
+=== Numeric summary ===
+                  count      mean       std  ...       50%       75%        max
+age             32561.0      38.6      13.6  ...      37.0      48.0       90.0
+fnlgt           32561.0  189778.4  105550.0  ...  178356.0  237051.0  1484705.0
+education-num   32561.0      10.1       2.6  ...      10.0      12.0       16.0
+capital-gain    32561.0    1077.6    7385.3  ...       0.0       0.0    99999.0
+capital-loss    32561.0      87.3     403.0  ...       0.0       0.0     4356.0
+hours-per-week  32561.0      40.4      12.3  ...      40.0      45.0       99.0
+
+[6 rows x 8 columns]
