@@ -1,4 +1,3 @@
-cat > .github/workflows/ci.yml <<'EOF'
 name: Python CI
 
 on:
@@ -34,7 +33,3 @@ jobs:
 
       - name: Test with pytest
         run: pytest -v
-EOF
-PYV=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
-sed -i "s/PYVERSION/$PYV/" .github/workflows/ci.yml
-grep python-version: .github/workflows/ci.yml | head -1
