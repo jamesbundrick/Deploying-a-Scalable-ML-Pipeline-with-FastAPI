@@ -1,0 +1,14 @@
+cat > .flake8 <<'EOF'
+[flake8]
+max-line-length = 100
+exclude =
+    .git,
+    __pycache__,
+    .github,
+    fastapi,
+    venv,
+    .venv,
+    build,
+    dist
+EOF
+grep -qx 'fastapi/' .gitignore || echo 'fastapi/' >> .gitignore
