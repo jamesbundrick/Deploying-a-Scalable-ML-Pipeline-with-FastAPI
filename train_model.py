@@ -52,19 +52,19 @@ X_test, y_test, _, _ = process_data(
     lb=lb,
 )
 
-# TODO: use the train_model function to train the model on the training dataset
-model = None # your code here
+# Train the model on the training data
+model = train_model(X_train, y_train)
 
-# save the model and the encoder
+# Save the model, the encoder and the label binarizer
 model_path = os.path.join(project_path, "model", "model.pkl")
 save_model(model, model_path)
 encoder_path = os.path.join(project_path, "model", "encoder.pkl")
 save_model(encoder, encoder_path)
+lb_path = os.path.join(project_path, "model", "lb.pkl")
+save_model(lb, lb_path)
 
-# load the model
-model = load_model(
-    model_path
-) 
+# Load the model back from disk
+model = load_model(model_path)
 
 # TODO: use the inference function to run the model inferences on the test dataset.
 preds = None # your code here
