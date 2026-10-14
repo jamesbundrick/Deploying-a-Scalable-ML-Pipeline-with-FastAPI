@@ -35,13 +35,13 @@ cat_features = [
     "native-country",
 ]
 
-# TODO: use the process_data function provided to process the data.
+# Process the training data (fits the encoder and label binarizer)
 X_train, y_train, encoder, lb = process_data(
-    # your code here
-    # use the train dataset 
-    # use training=True
-    # do not need to pass encoder and lb as input
-    )
+    train,
+    categorical_features=cat_features,
+    label="salary",
+    training=True,
+)
 
 X_test, y_test, _, _ = process_data(
     test,
