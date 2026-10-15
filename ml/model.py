@@ -1,12 +1,11 @@
 import pickle
-from sklearn.metrics import fbeta_score, precision_score, recall_score
-from ml.data import process_data
-import pickle
+
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+
 from ml.data import process_data
 
-# Optional: implement hyperparameter tuning.
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -19,14 +18,12 @@ def train_model(X_train, y_train):
         Labels.
     Returns
     -------
-    model
+    model : sklearn.ensemble.RandomForestClassifier
         Trained machine learning model.
     """
     model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
     model.fit(X_train, y_train)
     return model
-
-    pass
 
 
 def compute_model_metrics(y, preds):
@@ -56,7 +53,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : sklearn.ensemble.RandomForestClassifier
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -67,7 +64,6 @@ def inference(model, X):
     """
     return model.predict(X)
 
-    pass
 
 def save_model(model, path):
     """ Serializes model to a file.
@@ -75,31 +71,25 @@ def save_model(model, path):
     Inputs
     ------
     model
-        Trained machine learning model or OneHotEncoder.
+        Trained machine learning model, OneHotEncoder, or LabelBinarizer.
     path : str
         Path to save pickle file.
     """
     with open(path, "wb") as f:
         pickle.dump(model, f)
 
-    pass
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
     with open(path, "rb") as f:
         return pickle.load(f)
 
-    pass
-
 
 def performance_on_categorical_slice(
     data, column_name, slice_value, categorical_features, label, encoder, lb, model
 ):
-    """ Computes the model metrics on a slice of the data specified by a column name and
-
-    Processes the data using one hot encoding for the categorical features and a
-    label binarizer for the labels. This can be used in either training or
-    inference/validation.
+    """ Computes the model metrics on a slice of the data specified by a column name
+    and a slice value.
 
     Inputs
     ------
@@ -118,7 +108,7 @@ def performance_on_categorical_slice(
         Trained sklearn OneHotEncoder, only used if training=False.
     lb : sklearn.preprocessing._label.LabelBinarizer
         Trained sklearn LabelBinarizer, only used if training=False.
-    model : ???
+    model : sklearn.ensemble.RandomForestClassifier
         Model used for the task.
 
     Returns
